@@ -1,0 +1,38 @@
+Warning Label for Humans — local checks (build session, 2026-11-24 ~09:05 WIB)
+Competition: u-0xb3e689-warning-label-for-humans-one-line-big-laugh-40e31f85
+Entry: "CAUTION: Human may nod along to instructions they did not hear, then do it wrong with total confidence."
+Length: 103 characters, 103 bytes, 18 words, single line, no trailing newline.
+
+1. Node 22.21.1 run (~/workspace/makefun/_tools/node22/bin/node): exit 0.
+   Node 24.22.1 run: exit 0. Outputs byte-identical, md5
+   21eb955a5b23e4eea76ad529679cb8a3 (both runs, v1 and v2).
+2. Grader simulation (copy in /tmp, entry folder read-only, run as
+   user 65534/nobody from cwd /, no network via `unshare -n`,
+   MAKEFUN_OUTPUT_DIR to an empty writable dir): exit 0 in 144 ms,
+   output byte-identical (md5 21eb955a5b23e4eea76ad529679cb8a3).
+   A stale file in the output dir survived untouched: the program
+   never deletes the output directory, only writes entry.txt into it.
+   Second run: exit 0, same md5 (deterministic).
+3. Negative tests (copies outside the repo, Node 22.21.1):
+   - newline smuggled into the label -> exit 1, no entry.txt.
+   - label of 189 characters -> exit 1 ("label is 189 characters,
+     must be 1-160"), no entry.txt.
+   - label without WARNING:/CAUTION: prefix -> exit 1, no entry.txt.
+   - exclamation mark in the label -> exit 1, no entry.txt.
+4. Revision (v2, real): added the WARNING:/CAUTION: prefix gate and
+   corrected all eight candidate character counts in the comments to
+   the measured values (103/99/108/97/117/95/68/112). Re-ran all
+   checks after the revision; scores above are the post-revision
+   scores. Final main.ts content differs from the first write.
+5. Quality review vs the brief (judge criteria in order):
+   - Gate: a single-line safety warning label for every human, funny
+     first — "CAUTION: ... may ..." is printed-label form.
+   - Laugh in one read, turn in the last few words: "with total
+     confidence" flips the nod from understanding to performance.
+   - Recognition: nodding along to unheard instructions, then doing
+     it wrong confidently, is how humans actually behave.
+   - Real label wording/rhythm: CAUTION + "may" + plain instruction
+     language, deadpan throughout.
+   - Inside 160 characters (103), no filler, one joke, no second idea.
+   - No fetch, no clock, no randomness; original text, no placeholder,
+     no invented numbers.
